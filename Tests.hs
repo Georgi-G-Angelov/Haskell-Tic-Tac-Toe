@@ -63,7 +63,6 @@ emptyBoardTestCases
     , 2 ==> ([Empty,Empty,Empty,Empty],2)
     ]
 
--- You can add your own test cases above
 
 allTestCases
   = [
