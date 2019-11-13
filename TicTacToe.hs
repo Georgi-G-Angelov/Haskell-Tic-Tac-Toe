@@ -23,9 +23,6 @@ type Position = (Int, Int)
 
 -------------------------------------------------------------------
 
---
--- Some useful functions from, or based on, the unassessed problem sheets...
---
 
 -- Preserves Just x iff x satisfies the given predicate. In all other cases
 -- (including Nothing) it returns Nothing.
@@ -132,11 +129,7 @@ prettyPrint board@(cells, size)
             | cell == Taken O = 'O' : toString cells
             | cell == Taken X = 'X' : toString cells
 
--- The following reflect the suggested structure, but you can manage the game
--- in any way you see fit.
 
--- Repeatedly read a target board position and invoke tryMove until
--- the move is successful (Just ...).
 takeTurn :: Board -> Player -> IO Board
 takeTurn board player
   = do
@@ -154,11 +147,6 @@ takeTurn board player
         else do
           return (fromJust move)
 
-
--- Manage a game by repeatedly: 1. printing the current board, 2. using
--- takeTurn to return a modified board, 3. checking if the game is over,
--- printing the board and a suitable congratulatory message to the winner
--- if so.
 
 playGame :: Board -> Player -> IO ()
 playGame board player
@@ -213,8 +201,8 @@ emptyBoard size
       emptyBoard' 0 = []
       emptyBoard' n = Empty : emptyBoard' (n-1)
 
--- Print a welcome message, read the board dimension, invoke playGame and
--- exit with a suitable message.
+-- Prints a welcome message, reads the board dimension, invokes playGame and
+-- exits with a suitable message.
 main :: IO ()
 main
   = do
